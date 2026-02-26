@@ -313,7 +313,25 @@
             </div>
         </footer>
 
-        <!-- Download Modal -->
+        <!-- Statistics Container -->
+        <div class="stats-container" id="statsContainer">
+            <div class="stats-header">
+                <i class="fas fa-chart-line"></i>
+                <span>Statistics</span>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalFilesCounter">0</div>
+                <div class="stat-label">Total Files Processed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="todayFilesCounter">0</div>
+                <div class="stat-label">Files Processed Today</div>
+                <div class="stat-date" id="currentDate"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Modal -->
     <div class="modal-overlay" id="reportModal">
         <div class="modal">
             <div class="modal-header">
@@ -360,4 +378,3 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-
