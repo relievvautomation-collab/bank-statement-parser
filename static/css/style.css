@@ -22,7 +22,7 @@
     font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.btn-secondary:hover{color: var(--accent-blue) !important;}
+.btn-secondary{color: var(--accent-blue) !important;}
 
 .bacckground-back-vl{background: linear-gradient(135deg, #2a5298 0%, #004698 100%) !important; 
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(135deg, #2a5298 0%, #02499d 100%) !important;
@@ -296,9 +296,9 @@ body {
 }
 
 .btn-secondary {
-    background: var(--accent-blue) !important;
-    color: var(--accent-blue);
-    border: 2px solid var(--border-blue);
+    background: var(--light-blue) !important;
+    border-color: var(--accent-blue) !important;
+   
 }
 
 .btn-secondary:hover {
