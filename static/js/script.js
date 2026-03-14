@@ -521,7 +521,7 @@ function resetTool() {
     bankInfo.classList.remove('visible');
     bankInfo.style.display = 'none';
     pdfControls.style.display = 'none';
-    pdfViewer.innerHTML = `<div style="text-align: center; padding: 4rem; color: var(--text-light);">
+    pdfViewer.innerHTML = `<div style="text-align: center; padding: 4rem; color: var(--accent-blue);">
         <i class="fas fa-file-pdf" style="font-size: 4rem; margin-bottom: 1.5rem; display: block; color: var(--border-blue);"></i>
         <h3 style="margin-bottom: 0.8rem; color: var(--primary-blue);">No PDF to Display</h3>
         <p>Upload a bank statement PDF to see the preview here</p>
@@ -529,7 +529,7 @@ function resetTool() {
     pdfInfo.textContent = 'No PDF loaded. Upload a bank statement PDF to see preview.';
     excelHeader.innerHTML = '';
     excelBody.innerHTML = `<tr>
-        <td colspan="8" style="text-align: center; padding: 4rem; color: var(--text-light);">
+        <td colspan="8" style="text-align: center; padding: 4rem; color: var(--accent-blue);">
             <i class="fas fa-file-excel" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
             <h3 style="margin-bottom: 0.5rem; color: var(--primary-blue);">No Data to Display</h3>
             <p>Parse a bank statement PDF to see the extracted Excel data here</p>
