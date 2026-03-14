@@ -3,36 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank Statement to Excel Converter | SBI, HDFC & SCB Support</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Bank Statement to Excel Converter | SBI, HDFC & SCB Support </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstarp.min.css') }}">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        .container{max-width: 1500px;}
+        .nav-link{font-weight: 500;}
+       </style>
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
-        <header class="main-header">
-            <div class="header-content">
-                <div class="logo-section">
-                    <div class="logo-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="logo-text">
-                        <h1>Bank Statement to Excel Converter</h1>
-                        <p>Professional PDF parsing tool for SBI, HDFC & Standard Chartered bank statements</p>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 1.5rem;">
-                    <div class="header-badge">
-                        <i class="fas fa-shield-alt"></i> Secure Processing
-                    </div>
+      <div class="container">
+
+   <header class="position-sticky top-0" style="z-index: 999; border-bottom: 1px solid #d6d6d6;">
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand" href="https://www.relievv.in/">
+                   <!-- <img src="../static/images/logo.png" alt="logo" style="width: 120px;"> -->
+                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="bank-logo">   
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.relievv.in/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://relievv.in/#tools">All Tools</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://relievv.in/#categories">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://relievv.in/#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://relievv.in/blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://relievv.in/contact">Contact</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </header>
-
+        </nav>
+        <!-- Navbar End  -->
+             
+   </header>
+ <!-- Header -->
+ <div class="main-header bacckground-back-vl position-static top-0">
+    <div class="header-content">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <i class="fas fa-university"></i>
+            </div>
+            <div class="logo-text">
+                <h1>Bank Statement to Excel Converter</h1>
+                <p class="mb-0">Professional PDF parsing tool for SBI, HDFC & Standard Chartered bank statements</p>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <div class="header-badge">
+                <i class="fas fa-shield-alt"></i> Secure Processing
+            </div>
+        </div>
+    </div>
+</div>
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content p-0">
             <!-- File Upload Section -->
             <section class="upload-section">
                 <div class="section-header">
@@ -176,7 +220,7 @@
                                     </thead>
                                     <tbody id="excelBody">
                                         <tr>
-                                            <td colspan="8" style="text-align: center; padding: 4rem; color: var(--text-light);">
+                                            <td colspan="8" style="text-align: center; padding: 4rem; color: var(--accent-blue);">
                                                 <i class="fas fa-file-excel" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
                                                 <h3 style="margin-bottom: 0.5rem; color: var(--primary-blue);">No Data to Display</h3>
                                                 <p>Parse a bank statement PDF to see the extracted Excel data here</p>
@@ -199,7 +243,7 @@
                 </div>
                 <div class="tab-content-info">
                     <div class="tab-pane-info active" id="features-tab">
-                        <ul class="info-list">
+                        <ul class="info-list ps-0">
                             <li>Advanced PDF parsing for SBI, HDFC, and Standard Chartered bank statements</li>
                             <li>Automatic bank and format detection based on IFSC code and content</li>
                             <li>Preserves original transaction order and date sequence</li>
@@ -210,7 +254,7 @@
                         </ul>
                     </div>
                     <div class="tab-pane-info" id="safety-tab">
-                        <ul class="info-list">
+                        <ul class="info-list ps-0">
                             <li>All processing is performed on secure Python backend</li>
                             <li>Uploaded files are automatically deleted after processing</li>
                             <li>No personal or financial data is stored permanently</li>
@@ -225,7 +269,7 @@
                         </div>
                     </div>
                     <div class="tab-pane-info" id="notes-tab">
-                        <ul class="info-list">
+                        <ul class="info-list ps-0">
                             <li>For best results, ensure your PDF is system-generated (text-based)</li>
                             <li>The tool can handle multi-page statements up to 100 pages</li>
                             <li>Complex formatting and scanned images are not supported yet</li>
@@ -300,19 +344,20 @@
         </main>
 
         <!-- Footer -->
-        <footer class="main-footer">
+      
+        <footer class="main-footer bacckground-back-vl">
             <div class="footer-content">
                 <div class="copyright">
-                    © 2025 Bank Statement to Excel Converter • Version 3.0 • Professional Tool
+                    © <script>document.write(new Date().getFullYear());
+                    </script> Relievv Automation •  Bank Statement to Excel Converter • Version 3 • professional edition
                 </div>
                 <div class="footer-links">
-                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
-                    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
-                    <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+                    <a href="https://relievv.in/contact" target="_blank"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="https://relievv.in/contact" target="_blank"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="https://relievv.in/privacy-policy" target="_blank"><i class="fas fa-shield-alt"></i> Privacy</a>
                 </div>
             </div>
         </footer>
-
         <!-- Statistics Container -->
         <div class="stats-container" id="statsContainer">
             <div class="stats-header">
@@ -329,16 +374,17 @@
                 <div class="stat-date" id="currentDate"></div>
             </div>
         </div>
+      </div>
     </div>
 
     <!-- Download Modal -->
-    <div class="modal-overlay" id="reportModal">
-        <div class="modal">
-            <div class="modal-header">
+    <div class="modal-overlays" id="reportModal">
+        <div class="modals">
+            <div class="modal-headers">
                 <h2><i class="fas fa-file-download"></i> Download Excel File</h2>
-                <button class="close-modal" id="closeModal">&times;</button>
+                <button class="close-modal" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-bodys">
                 <div class="summary-grid">
                     <div class="summary-item">
                         <div class="summary-label">PDF Pages</div>
@@ -363,7 +409,7 @@
                     <p>This Excel file was generated from your uploaded bank statement PDF using our secure Python backend. Please verify the extracted data against the original statement before using it for financial reporting.</p>
                 </div>
                 
-                <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                <div style="margin: 2rem 0px; display: flex; gap: 1rem; justify-content: center;">
                     <button class="btn btn-success" id="confirmDownload">
                         <i class="fas fa-download"></i> Download Excel File
                     </button>
@@ -376,5 +422,8 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- <script src="../static/js/script.js"></script> -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script src="../static/js/bootstrap.min.js"></script>
 </body>
 </html>
