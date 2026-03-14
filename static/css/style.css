@@ -285,7 +285,7 @@ body {
 }
 
 .btn-primary {
-    background: var(--accent-blue);
+   background: var(--secondary-blue);
     color: white;
 }
 
