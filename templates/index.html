@@ -434,5 +434,185 @@
     <!-- <script src="../static/js/script.js"></script> -->
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
      <script src="../static/js/bootstrap.min.js"></script>
+    <!-- =============================================
+         GA4 EVENT TRACKING — EVERY BUTTON & ACTION
+         GA4 ID: G-R518J95E76
+         ============================================= -->
+    <script>
+    (function () {
+ 
+        /* ── 1. Browse Button Click ── */
+        document.getElementById('browseButton').addEventListener('click', function () {
+            gtag('event', 'browse_button_click', {
+                event_category: 'File Upload',
+                event_label: 'Browse PDF File Button'
+            });
+        });
+ 
+        /* ── 2. PDF File Selected ── */
+        document.getElementById('fileInput').addEventListener('change', function () {
+            if (this.files.length > 0) {
+                gtag('event', 'pdf_file_selected', {
+                    event_category: 'File Upload',
+                    event_label: 'Bank Statement PDF Selected',
+                    file_name: this.files[0].name,
+                    file_size_kb: Math.round(this.files[0].size / 1024)
+                });
+            }
+        });
+ 
+        /* ── 3. Drag & Drop ── */
+        document.getElementById('uploadArea').addEventListener('drop', function (e) {
+            var n = e.dataTransfer && e.dataTransfer.files ? e.dataTransfer.files.length : 0;
+            if (n > 0) {
+                gtag('event', 'pdf_drag_drop', {
+                    event_category: 'File Upload',
+                    event_label: 'Drag and Drop PDF Upload'
+                });
+            }
+        });
+ 
+        /* ── 4. Parse Bank Statement Button ── */
+        document.getElementById('parseBtn').addEventListener('click', function () {
+            gtag('event', 'parse_bank_statement_click', {
+                event_category: 'Tool Action',
+                event_label: 'Parse Bank Statement Button'
+            });
+        });
+ 
+        /* ── 5. Reset Tool Button ── */
+        document.getElementById('resetBtn').addEventListener('click', function () {
+            gtag('event', 'reset_tool_click', {
+                event_category: 'Tool Action',
+                event_label: 'Reset Tool Button'
+            });
+        });
+ 
+        /* ── 6. Download Button (opens modal) ── */
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            gtag('event', 'download_button_click', {
+                event_category: 'Download',
+                event_label: 'Download Excel Button Opened Modal'
+            });
+        });
+ 
+        /* ── 7. Confirm Download ── */
+        document.getElementById('confirmDownload').addEventListener('click', function () {
+            var txn = document.getElementById('modalTransactionCount')
+                        ? document.getElementById('modalTransactionCount').innerText : '0';
+            gtag('event', 'excel_downloaded', {
+                event_category: 'Download',
+                event_label: 'Confirmed Bank Statement Excel Download',
+                transactions: parseInt(txn) || 0
+            });
+        });
+ 
+        /* ── 8. Close Modal — X button ── */
+        document.getElementById('closeModal').addEventListener('click', function () {
+            gtag('event', 'modal_closed', {
+                event_category: 'Download',
+                event_label: 'Modal Closed via X Button'
+            });
+        });
+ 
+        /* ── 9. Close Modal — Cancel button ── */
+        document.getElementById('closeModalBtn').addEventListener('click', function () {
+            gtag('event', 'modal_cancelled', {
+                event_category: 'Download',
+                event_label: 'Modal Closed via Cancel Button'
+            });
+        });
+ 
+        /* ── 10. Preview Tab Switch (PDF / Excel) ── */
+        document.querySelectorAll('.preview-tab').forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                gtag('event', 'preview_tab_click', {
+                    event_category: 'Preview',
+                    event_label: 'Preview Tab: ' + this.innerText.trim()
+                });
+            });
+        });
+ 
+        /* ── 11. PDF Pagination — Previous Page ── */
+        document.getElementById('prevPage').addEventListener('click', function () {
+            gtag('event', 'pdf_prev_page', {
+                event_category: 'PDF Navigation',
+                event_label: 'Previous Page Button'
+            });
+        });
+ 
+        /* ── 12. PDF Pagination — Next Page ── */
+        document.getElementById('nextPage').addEventListener('click', function () {
+            gtag('event', 'pdf_next_page', {
+                event_category: 'PDF Navigation',
+                event_label: 'Next Page Button'
+            });
+        });
+ 
+        /* ── 13. Info Panel Tab Clicks ── */
+        document.querySelectorAll('.info-tab').forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                gtag('event', 'info_tab_click', {
+                    event_category: 'Engagement',
+                    event_label: 'Info Tab: ' + this.innerText.trim()
+                });
+            });
+        });
+ 
+        /* ── 14. Navbar Link Clicks ── */
+        document.querySelectorAll('.nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                gtag('event', 'navbar_click', {
+                    event_category: 'Navigation',
+                    event_label: this.innerText.trim(),
+                    link_url: this.href
+                });
+            });
+        });
+ 
+        /* ── 15. Footer Link Clicks ── */
+        document.querySelectorAll('.footer-links a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                gtag('event', 'footer_link_click', {
+                    event_category: 'Navigation',
+                    event_label: this.innerText.trim(),
+                    link_url: this.href
+                });
+            });
+        });
+ 
+        /* ── 16. Scroll Depth (25%, 50%, 75%, 90%) ── */
+        var scrollMarks = { 25: false, 50: false, 75: false, 90: false };
+        window.addEventListener('scroll', function () {
+            var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            Object.keys(scrollMarks).forEach(function (m) {
+                if (!scrollMarks[m] && pct >= m) {
+                    scrollMarks[m] = true;
+                    gtag('event', 'scroll_depth', {
+                        event_category: 'Engagement',
+                        event_label: 'Scrolled ' + m + '%',
+                        value: parseInt(m)
+                    });
+                }
+            });
+        });
+ 
+        /* ── 17. Time on Page (30s, 60s, 120s) ── */
+        [30, 60, 120].forEach(function (s) {
+            setTimeout(function () {
+                gtag('event', 'time_on_page', {
+                    event_category: 'Engagement',
+                    event_label: s + ' seconds on page',
+                    value: s
+                });
+            }, s * 1000);
+        });
+ 
+    })();
+    </script>
+    <!-- =============================================
+         END GA4 EVENT TRACKING
+         ============================================= -->
+ 
 </body>
 </html>
